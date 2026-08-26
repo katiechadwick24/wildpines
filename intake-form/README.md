@@ -1,37 +1,53 @@
 # Storytelling Intake Form
 
-A self-contained, no-backend intake form for collecting storytelling content
-from a client (currently Ali) to use as raw material for website, Instagram,
-and blog copywriting.
-
-Built as a standalone static site — three files, no build step, no server,
-no account required.
+A self-contained intake form for collecting storytelling content from a
+client (currently Ali) to use as raw material for website, Instagram, and
+blog copywriting. No custom backend — it deploys as a static site, but uses
+Netlify's built-in Forms feature to land submissions somewhere you'll
+actually see them.
 
 ## How it works
 
-- Open `index.html` (locally, or hosted anywhere — GitHub Pages, Netlify,
-  or just double-click it).
+- Open `index.html` (locally, or hosted anywhere).
 - The form walks through short sections, one at a time, with a progress bar.
 - Every answer autosaves to the browser's `localStorage` as it's typed.
-  Closing the tab and coming back later (on the **same browser, same
-  device**) resumes exactly where it left off — that's what makes it
-  "something to come back to." It does **not** sync across devices, since
-  there's no backend.
+  Closing the tab and coming back later resumes exactly where it left off —
+  **but only on the same browser and device.** It does not survive an
+  incognito/private window, a different browser, a different device, or
+  clearing browser data. Nothing to fix here, just don't oversell it as
+  bulletproof when telling Ali how it works.
 - At the end, there's a review screen where every answer can be edited
-  inline, followed by a **Download** button (saves a `.md` file) and a
-  **Copy everything** button, so the client can send their answers back to
-  you however's easiest (email, Slack, etc).
+  inline. Hitting **Send my answers** submits everything straight to your
+  Netlify Forms dashboard — no action needed from Ali beyond that click, and
+  no possibility of her forgetting to send you the file. **Download** and
+  **Copy everything** stay available as a backup in case the automatic send
+  ever fails (bad wifi, etc) — the button gracefully falls back to those
+  with a message telling her what happened, rather than pretending it worked.
 
-## Hosting it
+## Hosting it — Netlify only (for the automatic-submission part to work)
 
-Any static host works. Two easy options:
+This must be deployed on **Netlify** specifically — the "Send my answers"
+button depends on Netlify Forms, which other static hosts (GitHub Pages,
+Vercel) don't have. Deploying elsewhere still works for the form itself,
+you'd just lose the automatic-send feature and have to rely on the
+Download/Copy buttons.
 
-- **GitHub Pages**: enable Pages on this repo, pointed at this folder (or
-  push this folder to its own repo).
-- **Netlify/Vercel drag-and-drop**: drag the `intake-form/` folder onto
-  their dashboard.
+1. Deploy the `intake-form/` folder to Netlify as usual (drag-and-drop, or
+   connected via GitHub — **Publish directory must be set to `intake-form`**
+   if it's nested inside a repo, or root if you're only deploying this
+   folder on its own).
+2. Netlify detects the hidden form in `index.html` automatically on deploy
+   — nothing to configure.
+3. **Turn on notifications** so you actually know when someone submits: in
+   the Netlify dashboard, go to your site → **Forms** → **Settings and
+   usage** → **Form notifications** → **Add notification** → email
+   notification, pointed at your inbox. Do this once per site.
+4. Submissions land under your site's **Forms** tab in Netlify — each one
+   shows the respondent's name, business name, timestamp, and the full
+   question-by-question transcript in one field, so it's always clear which
+   answer belongs to which question.
 
-No environment variables, no backend, nothing to configure.
+No environment variables, no server code, nothing else to configure.
 
 ## Editing the content
 

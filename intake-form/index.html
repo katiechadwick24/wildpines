@@ -13,6 +13,20 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!--
+      Static form for Netlify's build-time form detection. Netlify scans the
+      deployed HTML for a <form data-netlify="true"> at deploy time to know
+      to capture submissions to it — this one is never shown or filled in by
+      hand. The real submission happens via fetch() in app.js, using the same
+      form name and field names declared here. See README.md for details.
+    -->
+    <form name="storytale-intake" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="respondent_name" />
+      <input type="text" name="business_name" />
+      <input type="text" name="submitted_at" />
+      <textarea name="full_transcript"></textarea>
+      <input type="text" name="bot-field" />
+    </form>
     <div id="app"></div>
     <script src="questions.js"></script>
     <script src="app.js"></script>

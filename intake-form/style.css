@@ -241,6 +241,17 @@ h2 {
   margin-top: 12px;
 }
 
+#submit-status {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  min-height: 1.2em;
+  margin-bottom: 4px;
+}
+
+#submit-status.error-note {
+  color: var(--color-primary-dark);
+}
+
 .saved-indicator {
   position: fixed;
   bottom: 24px;
