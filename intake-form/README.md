@@ -54,13 +54,16 @@ change to update the form's content:
 
 - `core_story` — built directly from Storytale's Chapter 1 material
   (Tipping Point → Journey → Purpose).
-- `who_you_serve` and `connect` — placeholder/general questions, marked as
-  such in their `subtitle`. Replace these with Storytale's actual Chapter 2
-  (Core People: Knowing/Understanding/Collecting) and Chapter 3 (Connect:
-  Pathway/Presence/Process) prompts once those modules are shared.
+- `core_people` — built directly from Storytale's Chapter 2 material
+  (Knowing → Understanding [Point A / Point B] → Collecting).
+- `connect` — built directly from Storytale's Chapter 3 material (Pathway →
+  Presence [One-Liner, Hook, Invitation, Offer Visibility] → Process
+  [Content topics/rhythm, Conversation]).
 - `basics`, `voice`, `proof`, `offers`, `freewrite` — general copywriting
   intake questions that aren't part of the Storytale course but are useful
   for writing actual copy regardless of framework.
+
+All three Storytale chapters are now represented in the form.
 
 ## Branding
 
@@ -76,6 +79,12 @@ See `copywriting-brief-prompt.md` for a ready-to-use Claude prompt that
 takes Ali's exported answers and produces About-page copy, homepage hero
 copy, Instagram caption starters, and blog post outlines — while flagging
 anywhere her answers were too thin to write from confidently.
+
+`resources/storytelling-content-templates.csv` is Storytale's bonus pack of
+100+ fill-in-the-blank content hooks (tagged Educational / Inspirational /
+Entertaining), pulled straight from the course's own resource module. The
+copywriting prompt uses it as a starting point for Instagram captions —
+the blanks still get filled with Ali's real details, not generic filler.
 
 ## Reusing this for future clients
 
