@@ -84,10 +84,17 @@ All three Storytale chapters are now represented in the form.
 ## Branding
 
 Colors and fonts are CSS custom properties at the top of `style.css`
-(`:root { --color-primary: ...; --font-heading: ...; }`). Swap those once
-real brand colors/fonts are available — nothing else in the file should
-need to change. It currently uses a neutral warm palette and Google Fonts
-(Fraunces + Inter), not the Wild Pines font.
+(`:root { --color-primary: ...; --font-heading: ...; }`) — change those and
+nothing else in the file needs to change.
+
+Currently set to the real brand: Dark Slate Gray, Rosy Brown, Dark Khaki,
+and White Smoke, with **Awesome Serif Italic** for headings and **Familjen
+Grotesk** for body text. Both fonts are self-hosted from `fonts/` (no
+external font requests) — declared via `@font-face` at the top of
+`style.css`. Awesome Serif's italic cut is the only style provided, so it's
+registered under its own font-family name rather than as `font-style:
+italic`, which keeps browsers from ever swapping in a synthesized (fake)
+italic or bold in its place.
 
 ## Turning answers into copy
 

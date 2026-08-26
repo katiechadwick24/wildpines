@@ -1,20 +1,51 @@
 /*
+  Brand fonts, self-hosted from ./fonts — no external font requests.
+  Awesome Serif's italic cut is the only heading style provided, so it gets
+  its own family name rather than being declared font-style: italic — that
+  keeps it from ever being swapped out by italic emulation and guarantees
+  headings always render as this exact face.
+*/
+@font-face {
+  font-family: 'Awesome Serif Italic';
+  src: url('fonts/AwesomeSerifItalicMdExtraTall.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Familjen Grotesk';
+  src: url('fonts/FamiljenGrotesk-Variable.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Familjen Grotesk';
+  src: url('fonts/FamiljenGrotesk-Italic-Variable.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/*
   Theming: everything customizable lives in :root below.
-  Swap these once real brand colors/fonts are provided — nothing else
-  in this file should need to change.
+  Brand palette (pinned colors): Dark Slate Gray #2E3134, Black #000000,
+  Rosy Brown #B9A18E, Dark Khaki #CBA875, White Smoke #F5F5F4.
 */
 :root {
-  --color-bg: #faf6f0;
+  --color-bg: #f5f5f4;
   --color-card: #ffffff;
-  --color-text: #2e2a26;
-  --color-muted: #7a7168;
-  --color-primary: #c9683f;
-  --color-primary-dark: #a8532f;
-  --color-border: #ece3d8;
-  --color-fill: #f3ece2;
+  --color-text: #2e3134;
+  --color-muted: color-mix(in srgb, #2e3134 68%, white);
+  --color-primary: #cba875;
+  --color-primary-dark: color-mix(in srgb, #cba875 80%, black);
+  --color-border: color-mix(in srgb, #b9a18e 35%, white);
+  --color-fill: color-mix(in srgb, #b9a18e 18%, white);
 
-  --font-heading: 'Fraunces', Georgia, 'Times New Roman', serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-heading: 'Awesome Serif Italic', Georgia, 'Times New Roman', serif;
+  --font-body: 'Familjen Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
   --radius: 16px;
 }
@@ -41,13 +72,15 @@ body {
 
 h1 {
   font-family: var(--font-heading);
-  font-size: 2rem;
+  font-weight: 500;
+  font-size: 2.1rem;
   margin: 0 0 8px;
 }
 
 h2 {
   font-family: var(--font-heading);
-  font-size: 1.3rem;
+  font-weight: 500;
+  font-size: 1.4rem;
   margin: 0 0 8px;
 }
 
@@ -147,7 +180,7 @@ h2 {
 
 .btn.primary {
   background: var(--color-primary);
-  color: #fff;
+  color: var(--color-text);
 }
 
 .btn.primary:hover {
