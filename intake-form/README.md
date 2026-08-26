@@ -56,12 +56,14 @@ change to update the form's content:
   (Tipping Point → Journey → Purpose).
 - `core_people` — built directly from Storytale's Chapter 2 material
   (Knowing → Understanding [Point A / Point B] → Collecting).
-- `connect` — still a placeholder/general section, marked as such in its
-  `subtitle`. Replace it with Storytale's actual Chapter 3 (Connect:
-  Pathway/Presence/Process) prompts once that module is shared.
+- `connect` — built directly from Storytale's Chapter 3 material (Pathway →
+  Presence [One-Liner, Hook, Invitation, Offer Visibility] → Process
+  [Content topics/rhythm, Conversation]).
 - `basics`, `voice`, `proof`, `offers`, `freewrite` — general copywriting
   intake questions that aren't part of the Storytale course but are useful
   for writing actual copy regardless of framework.
+
+All three Storytale chapters are now represented in the form.
 
 ## Branding
 
