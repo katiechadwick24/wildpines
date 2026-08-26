@@ -31,7 +31,11 @@ answers (do not invent achievements, numbers, or quotes), produce:
    possible, mirror the exact words their Core People used, from the
    "Collecting" answer. Match the posting rhythm and conversation style
    they described in Connect (don't suggest a daily posting cadence if they
-   said weekly feels sustainable).
+   said weekly feels sustainable). For a few of the five, start from one of
+   the fill-in-the-blank hooks in `resources/storytelling-content-templates.csv`
+   (pick 1-2 whose "Type of Content" — Educational, Inspirational, or
+   Entertaining — fits their voice) and fill the brackets with real details
+   from their answers, rather than writing every caption from scratch.
 4. **5 blog post title + one-paragraph outline ideas** — built from the
    real questions they said people ask them over and over, plus the content
    topics they named in Connect.
@@ -55,6 +59,11 @@ to ask Ali about directly rather than guessing.
 - Keeping the instruction "use only what's actually in her answers" prevents
   copy that sounds generic or invents details — the whole point of doing a
   storytelling intake instead of a generic brief.
+- `resources/storytelling-content-templates.csv` is Storytale's own bonus
+  pack of 100+ fill-in-the-blank content hooks, tagged Educational /
+  Inspirational / Entertaining. It's a shortcut for step 3 above, not a
+  replacement for it — the blanks still get filled with real, specific
+  details from Ali's answers, never generic placeholders.
 
 ## Making this repeatable for future clients
 

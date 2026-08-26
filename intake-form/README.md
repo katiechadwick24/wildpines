@@ -80,6 +80,12 @@ takes Ali's exported answers and produces About-page copy, homepage hero
 copy, Instagram caption starters, and blog post outlines — while flagging
 anywhere her answers were too thin to write from confidently.
 
+`resources/storytelling-content-templates.csv` is Storytale's bonus pack of
+100+ fill-in-the-blank content hooks (tagged Educational / Inspirational /
+Entertaining), pulled straight from the course's own resource module. The
+copywriting prompt uses it as a starting point for Instagram captions —
+the blanks still get filled with Ali's real details, not generic filler.
+
 ## Reusing this for future clients
 
 This is meant to be a repeatable template, not a one-off for Ali:
