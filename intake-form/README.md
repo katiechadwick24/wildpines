@@ -54,10 +54,11 @@ change to update the form's content:
 
 - `core_story` — built directly from Storytale's Chapter 1 material
   (Tipping Point → Journey → Purpose).
-- `who_you_serve` and `connect` — placeholder/general questions, marked as
-  such in their `subtitle`. Replace these with Storytale's actual Chapter 2
-  (Core People: Knowing/Understanding/Collecting) and Chapter 3 (Connect:
-  Pathway/Presence/Process) prompts once those modules are shared.
+- `core_people` — built directly from Storytale's Chapter 2 material
+  (Knowing → Understanding [Point A / Point B] → Collecting).
+- `connect` — still a placeholder/general section, marked as such in its
+  `subtitle`. Replace it with Storytale's actual Chapter 3 (Connect:
+  Pathway/Presence/Process) prompts once that module is shared.
 - `basics`, `voice`, `proof`, `offers`, `freewrite` — general copywriting
   intake questions that aren't part of the Storytale course but are useful
   for writing actual copy regardless of framework.

@@ -1,13 +1,12 @@
 // Storytelling intake question bank.
 //
-// SOURCE: "core_story" section below is built directly from Storytale's
-// Chapter 1 (Core Story) course material — Tipping Point / Journey / Purpose.
-// Every other section is a general copywriting-intake placeholder, since only
-// Chapter 1 of Storytale has been shared so far. Once Chapter 2 (Core People)
-// and Chapter 3 (Connect) materials are provided, replace the "who_you_serve"
-// and "connect" sections below with Storytale's actual Knowing/Understanding/
-// Collecting and Pathway/Presence/Process prompts — everything else (app.js,
-// index.html) stays the same, this file is the only thing that needs editing.
+// SOURCE: "core_story" and "core_people" sections below are built directly
+// from Storytale's Chapter 1 (Core Story) and Chapter 2 (Core People) course
+// material. "connect" is still a general copywriting-intake placeholder,
+// since Chapter 3 (Connect) hasn't been shared yet. Once it is, replace the
+// "connect" section below with Storytale's actual Pathway/Presence/Process
+// prompts — everything else (app.js, index.html) stays the same, this file
+// is the only thing that needs editing.
 
 const INTAKE_SECTIONS = [
   {
@@ -70,30 +69,57 @@ const INTAKE_SECTIONS = [
     ],
   },
   {
-    id: 'who_you_serve',
-    title: 'Who You Serve',
+    id: 'core_people',
+    title: 'Your Core People',
     subtitle:
-      "Draft section — will be replaced with Storytale's Chapter 2 (Core People) prompts once that module is shared. For now, general questions so we're not stuck.",
+      "Storytale's Chapter 2: the people your story is meant to reach — not a demographic, but the ones whose struggles, dreams, and values already resonate with your Core Story.",
     questions: [
       {
-        id: 'customer_who',
-        label: "Describe your ideal customer or client like you're describing a real person you know.",
+        id: 'knowing_who',
+        label: 'Knowing — who are they?',
+        helper:
+          'Who were you when you had your Tipping Point? Is there someone who inspired or drove you to pursue this path — or is your ideal person basically your old self, the one you used to be?',
         type: 'textarea',
       },
       {
-        id: 'customer_pain',
-        label: 'What are they struggling with right before they find you? What does that feel like for them?',
+        id: 'point_a',
+        label: 'Point A — what are they struggling with?',
+        helper: "Their 3 AM thoughts and feelings about the problem you solve. What does that struggle actually feel like for them?",
         type: 'textarea',
       },
       {
-        id: 'customer_after',
-        label: 'What does life or business look like for them after working with you?',
+        id: 'point_b',
+        label: 'Point B — what do they dream to feel instead?',
+        helper: "If there were a genie for your industry, what would they wish for? What's the feeling they're craving?",
         type: 'textarea',
       },
       {
-        id: 'customer_words',
-        label: 'What words or phrases do your best customers use to describe you?',
-        helper: 'Pull straight from reviews or DMs if you can — their exact words are gold.',
+        id: 'your_role',
+        label: 'Your role — how does your business move them from Point A to Point B?',
+        helper: 'What do you have that can uniquely help them get there, and how?',
+        type: 'textarea',
+      },
+      {
+        id: 'place',
+        label: 'Where do they usually buy things related to your industry?',
+        helper: 'Online or offline — wherever they already are.',
+        type: 'text',
+      },
+      {
+        id: 'social_media_habit',
+        label: 'Which social media platform do they use, and why?',
+        type: 'text',
+      },
+      {
+        id: 'habit',
+        label: 'What is their habit, interest, or lifestyle related to your industry?',
+        type: 'textarea',
+      },
+      {
+        id: 'collecting_notes',
+        label:
+          "Collecting — what have you actually heard from real people? Client conversations, DMs, reviews, recurring comments, forum threads — paste any direct quotes or patterns you've noticed.",
+        helper: "This is the good stuff — their exact words are more valuable than your guesses about them.",
         type: 'textarea',
       },
     ],
