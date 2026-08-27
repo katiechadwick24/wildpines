@@ -1,267 +1,262 @@
-// Storytelling intake question bank.
-//
-// SOURCE: "core_story", "core_people", and "connect" below are built
-// directly from a three-chapter storytelling framework (Core Story, Core
-// People, and Connect: Pathway/Presence/Process). All three chapters are
-// represented here. "basics", "voice", "proof", "offers", and "freewrite"
-// are general copywriting-intake questions that round out the framework
-// but aren't part of it.
+// Brand storytelling intake question bank.
 
 const INTAKE_SECTIONS = [
   {
     id: 'basics',
-    title: 'The Basics',
-    subtitle: "Let's start easy.",
+    title: 'Start Here',
+    subtitle: 'The quick version. We will get to the good stuff in a minute.',
     questions: [
       {
         id: 'business_name',
-        label: "What's the name of your business (or the name you want us to write about)?",
+        label: 'What is the name of your business?',
+        helper: 'A working name is completely fine.',
         type: 'text',
       },
       {
         id: 'tagline',
-        label: 'Do you already have a tagline or phrase people associate with you?',
-        helper: "It's totally okay if not, we can find one together.",
+        label: 'Do you already have a tagline, signature phrase, or something people associate with you?',
+        helper: 'No pressure if not. We can figure that out later.',
         type: 'text',
       },
       {
         id: 'elevator_pitch',
-        label: 'If you had 10 seconds to tell a stranger what you do, what would you say?',
+        label: 'If someone asked what you do, what would you say before your brain overthought it?',
         type: 'textarea',
       },
     ],
   },
   {
     id: 'core_story',
-    title: 'Your Core Story',
-    subtitle:
-      'This is the compass of your business: not a tagline, but the real experiences, struggles, and wins that shaped why you do what you do today.',
+    title: 'The Story Under It',
+    subtitle: 'The real experiences, frustrations, and convictions behind the work.',
     questions: [
       {
         id: 'tipping_point',
-        label: 'Tipping Point: what sparked you?',
+        label: 'Where did this start for you?',
         helper:
-          'When did you begin to care deeply about the kind of work you do now? What was the specific moment, problem, frustration, or inspiration that led you to pursue this path? It doesn\'t need to be dramatic, it just needs to be true.',
+          'What moment, problem, frustration, or obsession made this kind of work matter to you? It does not need to be dramatic. It just needs to be true.',
         type: 'textarea',
       },
       {
         id: 'journey_commitment',
-        label: 'Journey (Commitment): how did you commit to mastering your craft?',
+        label: 'What made you take it seriously?',
         helper:
-          'How did you transform your passion or realization into action? Were there any stories that shaped your journey?',
+          'How did this go from an interest or realization to something you decided to build, learn, or get very good at?',
         type: 'textarea',
       },
       {
         id: 'journey_success',
-        label: 'Journey (Success): what moments represent your success?',
+        label: 'What makes you think, “yes, this is why I do this”?',
         helper:
-          "Is there a particular moment or scene that shows what your business stands for? What outcomes or feedback make you feel proud and affirmed? (If you're just starting out, this can just be a moment that felt like growth.)",
+          "A client moment, a result, a piece of feedback, or a small win that felt especially real. If you are new, tell us about a moment that made you feel capable.",
         type: 'textarea',
       },
       {
         id: 'purpose',
-        label: 'Purpose: why do you keep going?',
+        label: 'What do you want your work to change?',
         helper:
-          "What impact do you want to make? What do you want to keep building or bringing into the world? It doesn't have to be grand, you just need to say why you care.",
+          'For your clients, your industry, or the world around you. Big or small, what do you care enough to keep showing up for?',
         type: 'textarea',
       },
     ],
   },
   {
     id: 'core_people',
-    title: 'Your Core People',
-    subtitle:
-      "The people your story is meant to reach: not a demographic, but the ones whose struggles, dreams, and values already resonate with your Core Story.",
+    title: 'Your People',
+    subtitle: 'Not a demographic exercise. The actual people you want in the room.',
     questions: [
       {
         id: 'knowing_who',
-        label: 'Knowing: who are they?',
+        label: 'Who is this really for?',
         helper:
-          'Who were you when you had your Tipping Point? Is there someone who inspired or drove you to pursue this path, or is your ideal person basically your old self, the one you used to be?',
+          'Describe them like a person, not a target market. They may be a past version of you, someone you know well, or the people you are most excited to help.',
         type: 'textarea',
       },
       {
         id: 'point_a',
-        label: 'Point A: what are they struggling with?',
-        helper: "Their 3 AM thoughts and feelings about the problem you solve. What does that struggle actually feel like for them?",
+        label: 'What is weighing on them before they find you?',
+        helper: 'Think 3 AM thoughts, recurring frustrations, and the thing they are tired of pretending is fine.',
         type: 'textarea',
       },
       {
         id: 'point_b',
-        label: 'Point B: what do they dream to feel instead?',
-        helper: "If there were a genie for your industry, what would they wish for? What's the feeling they're craving?",
+        label: 'What do they want to feel instead?',
+        helper: 'If the right solution appeared tomorrow, what would be different in their day, work, or life?',
         type: 'textarea',
       },
       {
         id: 'your_role',
-        label: 'Your role: how does your business move them from Point A to Point B?',
-        helper: 'What do you have that can uniquely help them get there, and how?',
+        label: 'Why are you the person to help them get there?',
+        helper: 'What is your particular approach, perspective, skill set, or way of working that makes a difference?',
         type: 'textarea',
       },
       {
         id: 'place',
-        label: 'Where do they usually buy things related to your industry?',
-        helper: 'Online or offline, wherever they already are.',
+        label: 'Where are they already spending money in your world?',
+        helper: 'Online or off. Think brands, stores, platforms, communities, and places they already trust.',
         type: 'text',
       },
       {
         id: 'social_media_habit',
-        label: 'Which social media platform do they use, and why?',
+        label: 'Where do they spend time online, and what are they doing there?',
         type: 'text',
       },
       {
         id: 'habit',
-        label: 'What is their habit, interest, or lifestyle related to your industry?',
+        label: 'What habits, interests, or lifestyle details tell us more about them?',
         type: 'textarea',
       },
       {
         id: 'collecting_notes',
         label:
-          "Collecting: what have you actually heard from real people? Client conversations, DMs, reviews, recurring comments, forum threads. Paste any direct quotes or patterns you've noticed.",
-        helper: "This is the good stuff: their exact words are more valuable than your guesses about them.",
+          'What have real people actually said about this?',
+        helper: 'Paste DMs, reviews, client language, recurring comments, forum threads, or notes from conversations. Exact words are gold.',
         type: 'textarea',
       },
     ],
   },
   {
     id: 'voice',
-    title: 'Your Voice & Personality',
-    subtitle: 'So the writing sounds like you, not a generic brand.',
+    title: 'How You Sound',
+    subtitle: 'So this sounds like you, not a brand generated in a beige conference room.',
     questions: [
       {
         id: 'voice_words',
-        label: 'Pick 3-5 words that describe your brand personality.',
-        helper: 'e.g. warm, no-nonsense, playful, luxe, scrappy',
+        label: 'What 3-5 words describe your voice when it is at its best?',
+        helper: 'For example: warm, blunt, playful, luxe, scrappy, thoughtful, a little feral.',
         type: 'textarea',
       },
       {
         id: 'voice_admire',
-        label: 'Name a brand, person, or writer whose voice you admire (any industry). What do you like about it?',
+        label: 'Whose voice do you love, and what exactly are they doing right?',
         type: 'textarea',
       },
       {
         id: 'voice_never',
-        label: "What's a word, phrase, or tone you NEVER want us to use for you?",
+        label: 'What should we never make you sound like?',
+        helper: 'Words, phrases, tones, trends, or entire vibes. Be specific. We love a hard no.',
         type: 'textarea',
       },
       {
         id: 'voice_spectrum',
-        label: 'On a scale from "buttoned-up professional" to "chaotic best friend," where do you land?',
-        type: 'text',
+        label: 'Finish this sentence: “My brand is more ___ than ___.”',
+        helper: 'For example: “more excellent host than corporate thought leader” or “more trusted guide than chaotic best friend.”',
+        type: 'textarea',
       },
     ],
   },
   {
     id: 'proof',
-    title: 'Proof & Results',
-    subtitle: 'The receipts that make people trust you.',
+    title: 'The Receipts',
+    subtitle: 'The things that make people trust you beyond the vibes.',
     questions: [
       {
         id: 'proof_results',
-        label: 'Share any results, numbers, or transformations you can point to, even small ones count.',
+        label: 'What results, transformations, or wins can you point to?',
+        helper: 'Numbers are welcome, but so are meaningful shifts, repeat clients, before-and-afters, and small victories.',
         type: 'textarea',
       },
       {
         id: 'proof_testimonial',
-        label: "Paste your favorite piece of client or customer feedback you've ever received.",
+        label: 'Paste a piece of client or customer feedback you are proud of.',
         type: 'textarea',
       },
       {
         id: 'proof_credentials',
-        label: 'Any credentials, press, awards, or experience that build trust?',
+        label: 'What experience, credentials, press, or proof gives people confidence in you?',
         type: 'textarea',
       },
     ],
   },
   {
     id: 'offers',
-    title: 'What You Offer',
-    subtitle: 'The practical stuff we need to describe clearly.',
+    title: 'What You Actually Do',
+    subtitle: 'The practical part, with as little business-speak as possible.',
     questions: [
       {
         id: 'offers_list',
-        label: 'List what you sell or offer right now (products, services, packages).',
+        label: 'What can someone hire or buy from you right now?',
         type: 'textarea',
       },
       {
         id: 'offers_different',
-        label: 'What makes your offer different from the other options your customer could choose instead?',
+        label: 'Why would someone choose your version over the other options?',
+        helper: 'What is different about the experience, process, point of view, outcome, or care you bring?',
         type: 'textarea',
       },
       {
         id: 'offers_favorite',
-        label: 'Which offer are you most excited about right now, and why?',
+        label: 'Which offer are you most excited about right now?',
+        helper: 'Tell us why. Your actual enthusiasm is useful data.',
         type: 'textarea',
       },
     ],
   },
   {
     id: 'connect',
-    title: 'Connect: Pathway, Presence & Process',
-    subtitle:
-      "The bridge between your story and your people: Pathway is where they find you, Presence is how they recognize you, Process is how you keep the relationship going.",
+    title: 'How They Find You',
+    subtitle: 'Where your people are, what makes them pay attention, and what happens after that.',
     questions: [
       {
         id: 'pathway_mediums',
-        label: 'Pathway: where do your Core People already spend their time?',
+        label: 'Where do your people already spend time?',
         helper:
-          "Online or offline. Then: which 1-2 places could you realistically show up starting now, without trying to be everywhere at once?",
+          'Online or off. Then tell us the one or two places you could realistically show up without trying to become a content farm.',
         type: 'textarea',
       },
       {
         id: 'one_liner',
-        label: 'Presence: your One-Liner',
+        label: 'What do you help people do?',
         helper:
-          'Use the formula: "I help [WHO] [DO WHAT], so they can [FEEL / ACHIEVE WHAT]." The formula version is fine, we\'ll help polish it into your voice.',
+          'Give us the plain version. “I help [who] [do what] so they can [feel or achieve what]” is plenty to start.',
         type: 'textarea',
       },
       {
         id: 'story_hook',
-        label: 'Presence: your story\'s Hook',
-        helper:
-          "One line that mirrors your Core People's biggest struggle or dream, to open your story with. The line that makes them think \"that's me.\"",
+        label: 'What is the line that would make the right person stop scrolling?',
+        helper: 'Something that names their struggle, desire, or very specific frustration well enough that they think, “oh. Rude. That is me.”',
         type: 'textarea',
       },
       {
         id: 'story_invitation',
-        label: "Presence: your story's Invitation",
-        helper:
-          "After someone hears your story, what's the one next step you want them to take? (Follow, book a call, join your list, reply, etc.)",
+        label: 'What do you want someone to do next?',
+        helper: 'Follow, book a call, join your list, reply, buy, lurk thoughtfully. Pick the clearest next step.',
         type: 'text',
       },
       {
         id: 'offer_next_step',
-        label: 'Presence (Offer Visibility): what\'s the simplest, clearest way for someone to actually work with you right now?',
+        label: 'What is the simplest way for someone to work with you right now?',
         type: 'textarea',
       },
       {
         id: 'content_topics',
-        label: 'Process (Content): what topics do you keep coming back to?',
-        helper: "Pull from your Core People's struggles and dreams, or just what's been on your mind lately.",
+        label: 'What do you keep wanting to talk about?',
+        helper: 'Pull from your people’s questions, your convictions, your work, or the things you cannot stop noticing.',
         type: 'textarea',
       },
       {
         id: 'content_rhythm',
-        label: 'Process (Content): what posting rhythm actually feels sustainable to you?',
-        helper: 'Not aspirational, realistic. Daily, a few times a week, weekly?',
+        label: 'What posting rhythm could you actually sustain?',
+        helper: 'Realistic, not aspirational. Daily, a few times a week, once a week, whenever the stars align?',
         type: 'text',
       },
       {
         id: 'conversation_style',
-        label: 'Process (Conversation): where do you naturally enjoy talking with your people, and what does that look like?',
-        helper: 'Replying to comments, DMs, in-person events, a Facebook group, wherever feels real, not performative.',
+        label: 'Where do you genuinely like talking with your people?',
+        helper: 'Comments, DMs, email, in-person events, a group chat, a community space. Wherever it feels real rather than performative.',
         type: 'textarea',
       },
     ],
   },
   {
     id: 'freewrite',
-    title: 'Anything Else',
-    subtitle: 'The open floor is yours.',
+    title: 'Loose Ends',
+    subtitle: 'Anything we missed, including the weirdly specific thing that may turn out to matter most.',
     questions: [
       {
         id: 'freewrite_notes',
-        label: "Anything we didn't ask that you think we should know? Dump it here, nothing is too random.",
+        label: 'What else should we know?',
+        helper: 'Context, opinions, half-formed ideas, a rant, a note you have been carrying around. Nothing is too random.',
         type: 'textarea',
       },
     ],
