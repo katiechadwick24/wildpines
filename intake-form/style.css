@@ -73,9 +73,31 @@ body {
 }
 
 #app {
+  position: relative;
+  z-index: 1;
   max-width: 640px;
   margin: 0 auto;
   padding: 32px 20px 96px;
+}
+
+.brand-watermark {
+  position: fixed;
+  right: 28px;
+  bottom: 24px;
+  width: 240px;
+  max-width: 42vw;
+  height: auto;
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (max-width: 480px) {
+  .brand-watermark {
+    width: 150px;
+    right: 16px;
+    bottom: 14px;
+  }
 }
 
 h1 {

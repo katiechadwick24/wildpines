@@ -102,6 +102,13 @@ overlay for depth. Swap that file for a different image and nothing else
 needs to change — it's referenced by filename in `style.css`'s `body`
 rule.
 
+`images/logo.png` (transparent PNG) is the Obsidian & Gold wordmark,
+shown as a fixed watermark in the bottom-right corner — it's declared once
+in `index.html` (outside the `#app` div, so it's never touched by the JS
+re-render) and positioned via the `.brand-watermark` rule in `style.css`.
+Because it's `position: fixed`, it stays anchored to the same spot in the
+viewport regardless of scroll position or which section the form is on.
+
 ## Turning answers into copy
 
 See `copywriting-brief-prompt.md` for a ready-to-use Claude prompt that
