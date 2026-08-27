@@ -94,9 +94,12 @@ body {
 
 @media (max-width: 480px) {
   .brand-watermark {
-    width: 210px;
-    left: 16px;
-    bottom: 14px;
+    position: static;
+    display: block;
+    width: 180px;
+    max-width: 60vw;
+    margin: 28px auto 0;
+    opacity: 1;
   }
 }
 
