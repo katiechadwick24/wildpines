@@ -4,6 +4,7 @@ const state = {
   respondentName: '',
   answers: {},
   currentIndex: -1, // -1 = welcome screen, INTAKE_SECTIONS.length = review screen
+  submittedAt: null,
 };
 
 const root = document.getElementById('app');
@@ -27,6 +28,7 @@ function saveState() {
         respondentName: state.respondentName,
         answers: state.answers,
         currentIndex: state.currentIndex,
+        submittedAt: state.submittedAt,
         savedAt: new Date().toISOString(),
       })
     );
@@ -150,7 +152,11 @@ function buildWelcomeScreen() {
     wrap.appendChild(
       el('ul', { class: 'welcome-facts' }, [
         el('li', {}, `📝 ${INTAKE_SECTIONS.length} short sections, ${totalQuestions()} prompts total`),
-        el('li', {}, '💾 Everything autosaves in this browser — close it anytime and come back'),
+        el(
+          'li',
+          {},
+          '💾 Everything autosaves as you go — close the tab or shut your laptop anytime, then come back on this same browser and device to pick up where you left off'
+        ),
         el('li', {}, "☕ Write freely. Fragments are fine, this isn't a test"),
       ])
     );
@@ -291,27 +297,80 @@ function buildReviewScreen() {
 
   const finishRow = el('div', { class: 'finish-box' });
   finishRow.appendChild(el('h2', {}, 'Send it over'));
-  finishRow.appendChild(
-    el(
-      'p',
-      { class: 'subtitle' },
-      'Download your answers as a file and email it over, or copy everything to your clipboard and paste it into an email.'
-    )
-  );
+
+  if (state.submittedAt) {
+    finishRow.appendChild(
+      el(
+        'p',
+        { class: 'subtitle' },
+        `✅ Sent on ${new Date(state.submittedAt).toLocaleString()}. Made more changes? Hit send again — it just sends the latest version.`
+      )
+    );
+  } else {
+    finishRow.appendChild(
+      el('p', { class: 'subtitle' }, "Hit send and your answers go straight to Katie — nothing else for you to do.")
+    );
+  }
+
+  finishRow.appendChild(el('div', { id: 'submit-status' }));
+
   const btnRow = el('div', { class: 'btn-row' });
-  btnRow.appendChild(el('button', { class: 'btn primary', onclick: downloadAnswers }, '⬇ Download my answers'));
+  btnRow.appendChild(
+    el('button', { id: 'submit-btn', class: 'btn primary', onclick: handleSubmit }, state.submittedAt ? '📤 Send again' : '📤 Send my answers')
+  );
+  btnRow.appendChild(el('button', { class: 'btn ghost', onclick: downloadAnswers }, '⬇ Download a copy'));
   btnRow.appendChild(el('button', { class: 'btn ghost', onclick: copyAnswers }, '📋 Copy everything'));
   finishRow.appendChild(btnRow);
   finishRow.appendChild(
     el(
       'p',
       { class: 'small-note' },
-      'Your answers stay saved in this browser too, so you can always come back and update them later.'
+      "Your answers also stay saved in this browser, so you can come back and update them later — sending again just updates what Katie has."
     )
   );
   wrap.appendChild(finishRow);
 
   return wrap;
+}
+
+function handleSubmit() {
+  const statusEl = document.getElementById('submit-status');
+  const btn = document.getElementById('submit-btn');
+  if (btn) btn.setAttribute('disabled', 'true');
+  if (statusEl) statusEl.textContent = 'Sending…';
+
+  submitToKatie()
+    .then(() => {
+      state.submittedAt = new Date().toISOString();
+      saveState();
+      render();
+    })
+    .catch((err) => {
+      console.warn('Submit failed', err);
+      if (btn) btn.removeAttribute('disabled');
+      if (statusEl) {
+        statusEl.textContent = "Couldn't send automatically — no worries, use Download or Copy below and email it instead.";
+        statusEl.classList.add('error-note');
+      }
+    });
+}
+
+function submitToKatie() {
+  const md = compileMarkdown();
+  const body = new URLSearchParams();
+  body.append('form-name', 'storytale-intake');
+  body.append('respondent_name', state.respondentName || '');
+  body.append('business_name', state.answers.business_name || '');
+  body.append('submitted_at', new Date().toLocaleString());
+  body.append('full_transcript', md);
+
+  return fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: body.toString(),
+  }).then((res) => {
+    if (!res.ok) throw new Error(`Submit failed with status ${res.status}`);
+  });
 }
 
 function compileMarkdown() {
@@ -357,6 +416,7 @@ function init() {
   if (saved) {
     state.respondentName = saved.respondentName || '';
     state.answers = saved.answers || {};
+    state.submittedAt = saved.submittedAt || null;
     state.currentIndex = -1; // always land on welcome-back screen, never mid-form
   }
   render();
