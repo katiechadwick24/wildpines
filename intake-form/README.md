@@ -96,6 +96,12 @@ registered under its own font-family name rather than as `font-style:
 italic`, which keeps browsers from ever swapping in a synthesized (fake)
 italic or bold in its place.
 
+The page background is `images/background.jpg` (Obsidian & Gold's own
+texture), covering the full page behind the card with a light dark
+overlay for depth. Swap that file for a different image and nothing else
+needs to change — it's referenced by filename in `style.css`'s `body`
+rule.
+
 ## Turning answers into copy
 
 See `copywriting-brief-prompt.md` for a ready-to-use Claude prompt that
