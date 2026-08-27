@@ -1,7 +1,7 @@
 /*
-  Brand fonts, self-hosted from ./fonts — no external font requests.
+  Brand fonts, self-hosted from ./fonts. No external font requests.
   Awesome Serif's italic cut is the only heading style provided, so it gets
-  its own family name rather than being declared font-style: italic — that
+  its own family name rather than being declared font-style: italic. That
   keeps it from ever being swapped out by italic emulation and guarantees
   headings always render as this exact face.
 */

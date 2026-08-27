@@ -1,4 +1,4 @@
-const STORAGE_KEY = 'storytale_intake_v1';
+const STORAGE_KEY = 'storytelling_intake_v1';
 
 const state = {
   respondentName: '',
@@ -68,7 +68,7 @@ function el(tag, attrs = {}, children = []) {
     else if (key === 'html') node.innerHTML = value;
     else if (key.startsWith('on') && typeof value === 'function') {
       node.addEventListener(key.slice(2), value);
-    } else {
+    } else if (value !== null && value !== undefined) {
       node.setAttribute(key, value);
     }
   });
@@ -95,7 +95,7 @@ function render() {
 }
 
 function buildSavedIndicator() {
-  return el('div', { id: 'saved-indicator', class: 'saved-indicator' }, '✨ Saved');
+  return el('div', { id: 'saved-indicator', class: 'saved-indicator' }, 'Saved');
 }
 
 function buildProgressBar() {
@@ -110,7 +110,7 @@ function buildProgressBar() {
     'div',
     { class: 'progress-label' },
     isReview
-      ? 'Almost done — review & send'
+      ? 'Almost done, review and send'
       : `Step ${state.currentIndex + 1} of ${INTAKE_SECTIONS.length}: ${INTAKE_SECTIONS[state.currentIndex].title}`
   );
   const bar = el('div', { class: 'progress-bar' }, el('div', { class: 'progress-fill', style: `width:${pct}%` }));
@@ -123,7 +123,7 @@ function buildWelcomeScreen() {
   const hasProgress = answeredCount() > 0;
   const wrap = el('div', { class: 'card welcome' });
 
-  wrap.appendChild(el('h1', {}, hasProgress ? 'Welcome back! 👋' : "Let's build your story ✨"));
+  wrap.appendChild(el('h1', {}, hasProgress ? 'Welcome back!' : "Let's build your story"));
 
   if (hasProgress) {
     wrap.appendChild(
@@ -146,18 +146,18 @@ function buildWelcomeScreen() {
       el(
         'p',
         { class: 'subtitle' },
-        "This is a space to tell us about your business — your story, your people, your voice — so we can turn it into copy for your website, Instagram, and blog. There are no wrong answers, and nothing here needs to be polished."
+        "This is a space to tell us about your business: your story, your people, your voice, so we can turn it into copy for your website, Instagram, and blog. There are no wrong answers, and nothing here needs to be polished."
       )
     );
     wrap.appendChild(
       el('ul', { class: 'welcome-facts' }, [
-        el('li', {}, `📝 ${INTAKE_SECTIONS.length} short sections, ${totalQuestions()} prompts total`),
+        el('li', {}, `${INTAKE_SECTIONS.length} short sections, ${totalQuestions()} prompts total`),
         el(
           'li',
           {},
-          '💾 Everything autosaves as you go — close the tab or shut your laptop anytime, then come back on this same browser and device to pick up where you left off'
+          'Everything autosaves as you go, close the tab or shut your laptop anytime, then come back on this same browser and device to pick up where you left off'
         ),
-        el('li', {}, "☕ Write freely. Fragments are fine, this isn't a test"),
+        el('li', {}, "Write freely. Fragments are fine, this isn't a test"),
       ])
     );
     wrap.appendChild(
@@ -264,7 +264,7 @@ function goTo(index) {
 
 function buildReviewScreen() {
   const wrap = el('div', { class: 'card' });
-  wrap.appendChild(el('h1', {}, `You did it${state.respondentName ? ', ' + state.respondentName : ''}! 🎉`));
+  wrap.appendChild(el('h1', {}, `You did it${state.respondentName ? ', ' + state.respondentName : ''}!`));
   wrap.appendChild(
     el(
       'p',
@@ -280,14 +280,14 @@ function buildReviewScreen() {
       el(
         'summary',
         {},
-        `${section.title} — ${sectionAnswered}/${section.questions.length} answered`
+        `${section.title} (${sectionAnswered}/${section.questions.length} answered)`
       )
     );
     const body = el('div', { class: 'review-body' });
     section.questions.forEach((q) => {
       body.appendChild(el('div', { class: 'review-q' }, q.label));
       body.appendChild(
-        el('div', { class: 'review-a' }, state.answers[q.id] && state.answers[q.id].trim() ? state.answers[q.id] : '— not answered yet —')
+        el('div', { class: 'review-a' }, state.answers[q.id] && state.answers[q.id].trim() ? state.answers[q.id] : '(not answered yet)')
       );
     });
     body.appendChild(el('button', { class: 'btn ghost small', onclick: () => goTo(idx) }, 'Edit this section'));
@@ -303,12 +303,12 @@ function buildReviewScreen() {
       el(
         'p',
         { class: 'subtitle' },
-        `✅ Sent on ${new Date(state.submittedAt).toLocaleString()}. Made more changes? Hit send again — it just sends the latest version.`
+        `Sent on ${new Date(state.submittedAt).toLocaleString()}. Made more changes? Hit send again, it just sends the latest version.`
       )
     );
   } else {
     finishRow.appendChild(
-      el('p', { class: 'subtitle' }, "Hit send and your answers go straight to Katie — nothing else for you to do.")
+      el('p', { class: 'subtitle' }, "Hit send and your answers go straight to Katie. Nothing else for you to do.")
     );
   }
 
@@ -316,16 +316,16 @@ function buildReviewScreen() {
 
   const btnRow = el('div', { class: 'btn-row' });
   btnRow.appendChild(
-    el('button', { id: 'submit-btn', class: 'btn primary', onclick: handleSubmit }, state.submittedAt ? '📤 Send again' : '📤 Send my answers')
+    el('button', { id: 'submit-btn', class: 'btn primary', onclick: handleSubmit }, state.submittedAt ? 'Send again' : 'Send my answers')
   );
-  btnRow.appendChild(el('button', { class: 'btn ghost', onclick: downloadAnswers }, '⬇ Download a copy'));
-  btnRow.appendChild(el('button', { class: 'btn ghost', onclick: copyAnswers }, '📋 Copy everything'));
+  btnRow.appendChild(el('button', { class: 'btn ghost', onclick: downloadAnswers }, 'Download a copy'));
+  btnRow.appendChild(el('button', { class: 'btn ghost', onclick: copyAnswers }, 'Copy everything'));
   finishRow.appendChild(btnRow);
   finishRow.appendChild(
     el(
       'p',
       { class: 'small-note' },
-      "Your answers also stay saved in this browser, so you can come back and update them later — sending again just updates what Katie has."
+      "Your answers also stay saved in this browser, so you can come back and update them later. Sending again just updates what Katie has."
     )
   );
   wrap.appendChild(finishRow);
@@ -349,7 +349,7 @@ function handleSubmit() {
       console.warn('Submit failed', err);
       if (btn) btn.removeAttribute('disabled');
       if (statusEl) {
-        statusEl.textContent = "Couldn't send automatically — no worries, use Download or Copy below and email it instead.";
+        statusEl.textContent = "Couldn't send automatically. No worries, use Download or Copy below and email it instead.";
         statusEl.classList.add('error-note');
       }
     });
@@ -358,7 +358,7 @@ function handleSubmit() {
 function submitToKatie() {
   const md = compileMarkdown();
   const body = new URLSearchParams();
-  body.append('form-name', 'storytale-intake');
+  body.append('form-name', 'storytelling-intake');
   body.append('respondent_name', state.respondentName || '');
   body.append('business_name', state.answers.business_name || '');
   body.append('submitted_at', new Date().toLocaleString());
@@ -375,7 +375,7 @@ function submitToKatie() {
 
 function compileMarkdown() {
   const lines = [];
-  lines.push(`# Storytelling Intake — ${state.respondentName || 'Untitled'}`);
+  lines.push(`# Storytelling Intake: ${state.respondentName || 'Untitled'}`);
   lines.push(`_Compiled ${new Date().toLocaleString()}_`);
   lines.push('');
   INTAKE_SECTIONS.forEach((section) => {
@@ -408,7 +408,7 @@ function copyAnswers() {
   navigator.clipboard
     .writeText(md)
     .then(() => alert('Copied! Paste it into an email whenever you\'re ready.'))
-    .catch(() => alert('Could not copy automatically — try the download button instead.'));
+    .catch(() => alert('Could not copy automatically. Try the download button instead.'));
 }
 
 function init() {
